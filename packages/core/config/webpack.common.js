@@ -3,6 +3,7 @@ const path = require('path')
 const { existsSync } = require('fs')
 
 const webpack = require('webpack')
+const PreactRefreshPlugin = require('@prefresh/webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
@@ -124,7 +125,7 @@ const getSharedPlugins = (isEnvProduction) => {
         chunkFilename: 'static/css/[name].[contenthash:8].css',
       }),
     new webpack.ProvidePlugin({
-      React: 'react',
+      h: 'preact',
       PropTypes: 'prop-types',
       gql: ['@redwoodjs/web', 'gql'],
       mockGraphQLQuery: ['@redwoodjs/testing', 'mockGraphQLQuery'],
@@ -164,11 +165,15 @@ module.exports = (webpackEnv) => {
           'node_modules',
           'styled-components'
         ),
-        react: path.resolve(redwoodPaths.base, 'node_modules', 'react'),
+        react: 'preact/compat',
+        'react-dom/test-utils': 'preact/test-utils',
+        'react-dom': 'preact/compat',
       },
     },
     plugins: [
       !isEnvProduction && new webpack.HotModuleReplacementPlugin(),
+      !isEnvProduction && new PreactRefreshPlugin(),
+      !isEnvProduction && require.resolve('react-refresh/babel'),
       new HtmlWebpackPlugin({
         title: path.basename(redwoodPaths.base),
         template: path.resolve(redwoodPaths.base, 'web/src/index.html'),
