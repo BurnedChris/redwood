@@ -6730,9 +6730,9 @@ chardet@^0.7.0:
   integrity sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
 
 check-node-version@^4.0.2:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/check-node-version/-/check-node-version-4.0.3.tgz#b783dc7267b2db0c2d0f0f51d75c9b6a5ee292f8"
-  integrity sha512-kbnOaF7SE1uasWx3hqxzsU2yz7I+rkxSMuTW0eKoF39eUtSR/a0F4Sm35LwJNx4itOIARf9eLhWHOOh7rlZ5/g==
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/check-node-version/-/check-node-version-4.2.1.tgz#42f7e3c6e2427327b5c9080dae593d8997fe9a06"
+  integrity sha512-YYmFYHV/X7kSJhuN/QYHUu998n/TRuDe8UenM3+m5NrkiH670lb9ILqHIvBencvJc4SDh+XcbXMR4b+TtubJiw==
   dependencies:
     chalk "^3.0.0"
     map-values "^1.0.1"
